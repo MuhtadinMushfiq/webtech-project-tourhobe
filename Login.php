@@ -49,7 +49,7 @@ if(!isset($name))
                 <input id="sign-in-button" type="submit" name="btn" value="submit">
                 <!-- <a id="sign-in-button" href="#">Sign In</a> -->
                 </form>
-                <p class="sign-up-link">Don't Have an account..? <a href="Signup.html" class="Sign-Up">Sign Up</a> here</p>
+                <p class="sign-up-link">Don't Have an account..? <a href="Signup.php" class="Sign-Up">Sign Up</a> here</p>
 
             </div>
          </div>
