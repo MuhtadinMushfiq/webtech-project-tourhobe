@@ -44,10 +44,19 @@ if(!isset($name))
 
 
                 <?php  } ?> 
+
                 <input type="checkbox" name="" id="check-box"> Remember Me
                 <a href="" id="Forgot-pass">Forgotten Password?</a><br>
                 <input id="sign-in-button" type="submit" name="btn" value="submit">
-                <!-- <a id="sign-in-button" href="#">Sign In</a> -->
+
+                <?php  
+                     if(isset($message))  
+                     {  
+                          echo $message;  
+                     }  
+                ?>  
+
+     
                 </form>
                 <p class="sign-up-link">Don't Have an account..? <a href="Signup.php" class="Sign-Up">Sign Up</a> here</p>
 

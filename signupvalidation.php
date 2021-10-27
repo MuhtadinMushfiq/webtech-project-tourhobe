@@ -62,7 +62,7 @@ elseif (strlen($cnpassword)<6)
 
 else  
 {  
-     if(file_exists('data.json'))  
+     if(file_exists('signup.json'))  
      {  
           $current_data = file_get_contents('signup.json');  
           $array_data = json_decode($current_data, true);  
