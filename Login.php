@@ -34,7 +34,7 @@ if(!isset($name))
 
                 <?php   if (isset($nameerror)) { ?>
 
-                    <b> <h3> <span style="color: red;">  <?php echo $nameerror ; ?></span>  </h3> </b>   <br>
+                    <b>  <span style="color: red;">  <?php echo $nameerror ; ?></span>   </b>   <br>
   
                 <?php  } ?> 
 
@@ -43,7 +43,7 @@ if(!isset($name))
                 <?php   if (isset($passworderror)) { ?>
 
                 
-                    <b> <h3> <span style="color: red;"><?php echo $passworderror ; ?></span>  </h3> </b> <br>   
+                    <b>  <span style="color: red;"><?php echo $passworderror ; ?></span>   </b> <br>   
 
 
 
@@ -51,11 +51,11 @@ if(!isset($name))
 
                 <input type="checkbox" name="" id="check-box"> Remember Me
                 <a href="" id="Forgot-pass">Forgotten Password?</a><br>
-                <input id="sign-in-button" type="submit" name="btn" value="submit">
+                <input id="sign-in-button" type="submit" name="btn" value="submit"> <br>
 
                <?php   if (isset($loginproblem)) { ?>
 
-                <b> <h3> <span style="color: red;"><?php echo $loginproblem ; ?></span>  </h3> </b> <br>   
+                <b>  <span style="color: red;"><?php echo $loginproblem ; ?></span>   </b> <br>   
 
 
                 <?php  } ?> 

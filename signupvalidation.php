@@ -10,11 +10,12 @@ include ('signupjson.php');
 $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
 $uname = $_POST['username'];
+$usertype = $_POST['usertype'];
 $mail = $_POST ['email'];
 $password = $_POST['userpassword'];
 $cnpassword = $_POST['confirmpassword'];
-$usertype = $_POST['usertype'];
 
+$loginproblem=' incorrect username and password';
 
 if (empty($fname))
  {
@@ -73,9 +74,9 @@ elseif (strlen($cnpassword)<6)
 {
  $cnpassworderror ='your password needs atleast 6 letters';
 }
+include('signup.php');
 
 ?>
-
 
 <?php   
 
@@ -84,37 +85,51 @@ $user="root";
 $password="";
 $db="user";
 
-
 $data=mysqli_connect($host,$user,$password,$db);
  
 if($data===false)
 {
    die("connection error");
 }
+if(empty( $fnameerror)&&empty( $lnameerror)&&empty( $unameerror)&&empty( $mailerror)&&empty( $cnpassworderror) )
 
-if($_SERVER["REQUEST_METHOD"]=="POST")
 {
-   $uname=$_POST["username"];
-   $password=$_POST["userpassword"];
-   $fname=$_POST["firstname"];
-   $lname=$_POST["lastname"];
-   $mail=$_POST["email"];
-   $usertype=$_POST["usertype"];
 
-   $sql="insert into login (username,userpassword,firstname,lastname,email,usertype) 
-   values(' $uname','$password',' $fname',' $lname','$mail',' $usertype') ";
-   $result=mysqli_query($data,$sql);
-
-   if($result)
+   if($_SERVER["REQUEST_METHOD"]=="POST")
    {
-      header("location:index.php");
-   }
-   else
-   {
-
-      include('Login.php');
+      $uname=$_POST["username"];
+      $password=$_POST["userpassword"];
+      $fname=$_POST["firstname"];
+      $lname=$_POST["lastname"];
+      $mail=$_POST["email"];
+      $usertype=$_POST["usertype"];
+      $usertype=$_POST["usertype"];
+      $cnpassword=$_POST["confirmpassword"];
       
-   }
+      $sql="insert into login (username,userpassword,firstname,lastname,email,usertype,confirmpassword) 
+      values(' $uname','$password',' $fname',' $lname','$mail',' $usertype','$cnpassword') ";
+      $result=mysqli_query($data,$sql);
+   
+      if($result)
+      {
+         header("location:index.php");
+      }
 
 }
+
+  
+      else
+      {
+   
+         include('signup.php');
+         
+      }
+   
+   
+
+}
+
 ?>
+
+
+

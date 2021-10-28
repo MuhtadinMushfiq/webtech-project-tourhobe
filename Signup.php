@@ -44,11 +44,12 @@
         <?php  } ?> 
 
         <label for="usertype">Choose your role:</label>
-       <select name="usertype" id="usertype">
-       <option value="volvo">admin</option>
-       <option value="saab">customer</option>
-        <option value="opel">manager</option>
-       <option value="audi">tourguide</option>
+       <select name="usertype">
+       <option value=""></option> 
+       <option value="admin">admin</option>
+       <option value="customer">customer</option>
+        <option value="manager">manager</option>
+       <option value="tourguide">tourguide</option>
        </select>
          
         <label>Email</label>
@@ -80,18 +81,20 @@
 
         <input id="sign-in-button" type="submit" name="btn" value="submit">
 
-        <?php  
-                     if(isset($message))  
-                     {  
-                          echo $message;  
-                     }  
-        ?>  
+        <?php   if (isset($loginproblem)) { ?>
 
+<b>  <span style="color: red;"><?php echo $loginproblem ; ?></span>   </b> <br>   
+
+
+<?php  } ?> 
+
+
+       
       </form>
       
     </div>
     <p class="para-2">
-      Already have an account? <a href="login.html">Login here</a>
+      Already have an account? <a href="login.php">Login here</a>
     </p>
   </body>
 </html>
