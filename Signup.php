@@ -11,7 +11,7 @@
   <body>
     <div class="signup-box">
       <h1>Sign Up</h1>
-      <h4>It's free and only takes a minute</h4>
+
       <form action="signupvalidation.php" method="post" >
         <label>First Name</label>
         <input type="text" name="firstname" placeholder="" />
@@ -35,7 +35,22 @@
 
 
 
+        <label>User Name</label>
+        <input type="text" name="username" placeholder="" />
+         <?php   if (isset($unameerror)) { ?>
 
+        <span> <?php echo $unameerror ; ?> </span>  <br>
+
+        <?php  } ?> 
+
+        <label for="usertype">Choose your role:</label>
+       <select name="usertype" id="usertype">
+       <option value="volvo">admin</option>
+       <option value="saab">customer</option>
+        <option value="opel">manager</option>
+       <option value="audi">tourguide</option>
+       </select>
+         
         <label>Email</label>
         <input type="email" name="email" placeholder="" />
 
@@ -46,7 +61,7 @@
         <?php  } ?> 
 
         <label>Password</label>
-        <input type="password" name="password" placeholder="" />
+        <input type="password" name="userpassword" placeholder="" />
 
         <?php   if (isset($passworderror)) { ?>
 
@@ -59,7 +74,7 @@
 
         <?php   if (isset($cnpassworderror)) { ?>
 
-        <span><?php echo $cnpassworderror ; ?> </span>  <br>
+        <span><?php echo $cnpassworderror ; ?> </span>  <br> <br>
 
         <?php  } ?> 
 
@@ -73,11 +88,7 @@
         ?>  
 
       </form>
-      <p>
-        
-        By clicking the Sign Up button,you agree to our <br />
-        <a href="#">Terms and Condition</a> and <a href="#">Policy Privacy</a>
-      </p>
+      
     </div>
     <p class="para-2">
       Already have an account? <a href="login.html">Login here</a>

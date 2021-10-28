@@ -1,11 +1,19 @@
+<?php
+include ('signupjson.php');
+
+?>
+
+
+
 <?php   
 
 $fname = $_POST['firstname'];
 $lname = $_POST['lastname'];
+$uname = $_POST['username'];
 $mail = $_POST ['email'];
-$password = $_POST['password'];
+$password = $_POST['userpassword'];
 $cnpassword = $_POST['confirmpassword'];
-
+$usertype = $_POST['usertype'];
 
 
 if (empty($fname))
@@ -25,8 +33,14 @@ if (empty($lname))
 
 elseif (strlen($lname)<6) 
 {
-   $lnameerror ='your name needs atleast 6 letters';
+   $lnamerror ='your name needs atleast 6 letters';
 }
+
+if (empty($uname))
+ {
+    $unameerror ='please enter your username';
+}
+
 
   if (empty($password)) 
   {
@@ -60,52 +74,47 @@ elseif (strlen($cnpassword)<6)
  $cnpassworderror ='your password needs atleast 6 letters';
 }
 
-else  
-{  
-     if(file_exists('signup.json'))  
-     {  
-          $current_data = file_get_contents('signup.json');  
-          $array_data = json_decode($current_data, true);  
-          $extra = array(  
-            'firstname'       =>     $_POST['firstname'],
-            'lastname'        =>     $_POST['lastname'],
-            'password'        =>     $_POST['password'],  
-            'confirmpassword' =>     $_POST["confirmpassword"],  
-            'email'           =>     $_POST["email"],
-             
-          );  
-          $array_data[] = $extra;  
-          $final_data = json_encode($array_data);  
-          if(file_put_contents('signup.json', $final_data))  
-          {  
-               $message = "<label class='text-success'>Sign up sucessfully</p>";  
-          }  
-     }  
-     else  
-     {  
-          $error = 'JSON File not exits'; 
-       }  
-}  
+?>
 
 
-if (empty($fnameerror) && empty($lnameerror) && empty($passworderror) && empty($mailerror) && 
-empty($cnpassworderror) && empty('')) 
-{
-  include('success.php');
-}
+<?php   
+
+$host="localhost";
+$user="root";
+$password="";
+$db="user";
 
 
-
-else
-{
-   include('Signup.php');
-}
-
-  //include('index.php');
-
-
+$data=mysqli_connect($host,$user,$password,$db);
  
+if($data===false)
+{
+   die("connection error");
+}
 
- ?>
+if($_SERVER["REQUEST_METHOD"]=="POST")
+{
+   $uname=$_POST["username"];
+   $password=$_POST["userpassword"];
+   $fname=$_POST["firstname"];
+   $lname=$_POST["lastname"];
+   $mail=$_POST["email"];
+   $usertype=$_POST["usertype"];
 
+   $sql="insert into login (username,userpassword,firstname,lastname,email,usertype) 
+   values(' $uname','$password',' $fname',' $lname','$mail',' $usertype') ";
+   $result=mysqli_query($data,$sql);
 
+   if($result)
+   {
+      header("location:index.php");
+   }
+   else
+   {
+
+      include('Login.php');
+      
+   }
+
+}
+?>
