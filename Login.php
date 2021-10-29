@@ -51,7 +51,7 @@ if(!isset($name))
 
                 <input type="checkbox" name="" id="check-box"> Remember Me
                 <a href="" id="Forgot-pass">Forgotten Password?</a><br>
-                <input id="sign-in-button" type="submit" name="btn" value="submit"> <br>
+                <input id="sign-in-button" type="submit" name="login" value="submit"> <br>
 
                <?php   if (isset($loginproblem)) { ?>
 

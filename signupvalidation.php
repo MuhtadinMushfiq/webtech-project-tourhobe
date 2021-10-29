@@ -1,4 +1,13 @@
 <?php
+
+session_start();
+
+?>
+
+
+
+
+<?php
 include ('signupjson.php');
 
 ?>
@@ -128,6 +137,9 @@ if(empty( $fnameerror)&&empty( $lnameerror)&&empty( $unameerror)&&empty( $mailer
    
 
 }
+
+
+
 
 ?>
 

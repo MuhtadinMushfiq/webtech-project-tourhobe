@@ -1,3 +1,6 @@
+
+
+
 <?php
 include ('loginjson.php');
 
@@ -9,6 +12,7 @@ include ('loginjson.php');
 
 $uname = $_POST['username'];
 $password = $_POST['userpassword'];
+
 
 if (empty($uname))
  {
@@ -33,6 +37,7 @@ $user="root";
 $password="";
 $db="user";
 $loginproblem=' incorrect username and password';
+session_start();
 
 $data=mysqli_connect($host,$user,$password,$db);
  
@@ -41,13 +46,12 @@ if($data===false)
    die("connection error");
 }
 
-if($_SERVER["REQUEST_METHOD"]=="POST")
+if(isset($_POST['login']))
 {
    $uname=$_POST["username"];
    $password=$_POST["userpassword"];
-   
-
-   $sql="select * from login where username='".$uname."' AND userpassword='".$password."' ";
+  
+   $sql="select * from login where username='".$uname."' AND userpassword='".$password."'   ";
 
    $result=mysqli_query($data,$sql);
 
@@ -55,6 +59,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
    if($row["usertype"]=="customer")
    {  
+      $_SESSION["username"]=$username;
 
       header("location:user.php");
 
@@ -63,6 +68,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
    elseif($row["usertype"]=="admin")
    {
+      $_SESSION["username"]=$username;
 
       header("location:admin.php");
       
@@ -71,6 +77,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
    elseif($row["usertype"]=="guide")
    {
+      $_SESSION["username"]=$username;
 
       header("location:tourguide.php");
       
@@ -92,7 +99,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 ?>
 
 
-
+ 
 
 
 
