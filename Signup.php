@@ -1,9 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
 
 
 
@@ -90,9 +84,9 @@ session_start();
 
         <input id="sign-in-button" type="submit" name="btn" value="submit">
 
-        <?php   if (isset($loginproblem)) { ?>
+        <?php   if (isset($signupproblem)) { ?>
 
-<b>  <span style="color: red;"><?php echo $loginproblem ; ?></span>   </b> <br>   
+<b>  <span style="color: red;"><?php echo $signupproblem ; ?></span>   </b> <br>   
 
 
 <?php  } ?> 

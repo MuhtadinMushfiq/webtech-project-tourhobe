@@ -1,11 +1,11 @@
 <?php
 
-$fname = $_POST['firstname'];
-$lname = $_POST['lastname'];
-$mail = $_POST ['email'];
-$password = $_POST['userpassword'];
-$cnpassword = $_POST['confirmpassword'];
-$uname = $_POST['username'];
+$firstname = $_POST['firstname'];
+$lastname = $_POST['lastname'];
+$email = $_POST ['email'];
+$userpassword = $_POST['userpassword'];
+$confirmpassword = $_POST['confirmpassword'];
+$username = $_POST['username'];
 $usertype = $_POST['usertype'];
 
 

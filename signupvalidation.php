@@ -1,11 +1,3 @@
-<?php
-
-session_start();
-
-?>
-
-
-
 
 <?php
 include ('signupjson.php');
@@ -16,70 +8,70 @@ include ('signupjson.php');
 
 <?php   
 
-$fname = $_POST['firstname'];
-$lname = $_POST['lastname'];
-$uname = $_POST['username'];
+$firstname = $_POST['firstname'];
+$lastnamename = $_POST['lastname'];
+$usernamename = $_POST['username'];
 $usertype = $_POST['usertype'];
-$mail = $_POST ['email'];
-$password = $_POST['userpassword'];
-$cnpassword = $_POST['confirmpassword'];
+$email = $_POST ['email'];
+$userpassword = $_POST['userpassword'];
+$confirmpassword = $_POST['confirmpassword'];
 
-$loginproblem=' incorrect username and password';
+$signupproblem='please signup properly';
 
-if (empty($fname))
+if (empty($firstname))
  {
     $fnameerror ='please enter your Firstname';
 }
 
-elseif (strlen($fname)<6) 
+elseif (strlen($firstname)<6) 
 {
    $fnameerror ='your name needs atleast 6 letters';
 }
 
-if (empty($lname))
+if (empty($lastname))
  {
     $lnameerror ='please enter your Lastname';
 }
 
-elseif (strlen($lname)<6) 
+elseif (strlen($lastname)<6) 
 {
    $lnamerror ='your name needs atleast 6 letters';
 }
 
-if (empty($uname))
+if (empty($username))
  {
     $unameerror ='please enter your username';
 }
 
 
-  if (empty($password)) 
+  if (empty($userpassword)) 
   {
       $passworderror='please enter your password';
   }
 
-elseif (strlen($password)<6) 
+elseif (strlen($userpassword)<6) 
 {
    $passworderror ='your password needs atleast 6 letters';
 }
 
-if (empty($mail))
+if (empty($email))
  {
     $mailerror ='please enter your email';
 }
 
-elseif (strlen($mail)<6) 
+elseif (strlen($email)<6) 
 {
    $mailerror ='your email needs atleast 6 letters';
 }
 
 
 
-if (empty($cnpassword)) 
+if (empty($confirmpassword)) 
 {
     $cnpassworderror='please confirm your password';
 }
 
-elseif (strlen($cnpassword)<6) 
+elseif (strlen($confirmpassword)<6) 
 {
  $cnpassworderror ='your password needs atleast 6 letters';
 }
@@ -106,17 +98,17 @@ if(empty( $fnameerror)&&empty( $lnameerror)&&empty( $unameerror)&&empty( $mailer
 
    if($_SERVER["REQUEST_METHOD"]=="POST")
    {
-      $uname=$_POST["username"];
-      $password=$_POST["userpassword"];
-      $fname=$_POST["firstname"];
-      $lname=$_POST["lastname"];
-      $mail=$_POST["email"];
+      $username=$_POST["username"];
+      $userpassword=$_POST["userpassword"];
+      $firstname=$_POST["firstname"];
+      $lastname=$_POST["lastname"];
+      $email=$_POST["email"];
       $usertype=$_POST["usertype"];
-      $usertype=$_POST["usertype"];
-      $cnpassword=$_POST["confirmpassword"];
+   
+      $confirmpassword=$_POST["confirmpassword"];
       
       $sql="insert into login (username,userpassword,firstname,lastname,email,usertype,confirmpassword) 
-      values(' $uname','$password',' $fname',' $lname','$mail',' $usertype','$cnpassword') ";
+      values(' $username','$userpassword',' $firstname',' $lastname','$email',' $usertype','$confirmpassword') ";
       $result=mysqli_query($data,$sql);
    
       if($result)

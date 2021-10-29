@@ -10,18 +10,18 @@ include ('loginjson.php');
 
 <?php   
 
-$uname = $_POST['username'];
-$password = $_POST['userpassword'];
+$username = $_POST['username'];
+$userpassword = $_POST['userpassword'];
 
 
-if (empty($uname))
+if (empty($username))
  {
     $nameerror ='please enter your email';
 }
 
 
 
-  if (empty($password)) 
+  if (empty($userpassword)) 
   {
       $passworderror='please enter your password';
   }
@@ -32,6 +32,7 @@ if (empty($uname))
 
 
 <?php   
+
 $host="localhost";
 $user="root";
 $password="";
@@ -48,10 +49,10 @@ if($data===false)
 
 if(isset($_POST['login']))
 {
-   $uname=$_POST["username"];
-   $password=$_POST["userpassword"];
+   $username=$_POST["username"];
+   $userpassword=$_POST["userpassword"];
   
-   $sql="select * from login where username='".$uname."' AND userpassword='".$password."'   ";
+   $sql="select * from login where username='".$username."' AND userpassword='".$userpassword."'   ";
 
    $result=mysqli_query($data,$sql);
 

@@ -1,7 +1,7 @@
 
  <?php
-$name = $_POST['username'];
-$password = $_POST['userpassword'];
+$username = $_POST['username'];
+$userpassword = $_POST['userpassword'];
 
 if(file_exists('login.json'))  
      {  
