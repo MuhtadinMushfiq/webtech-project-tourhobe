@@ -1,6 +1,3 @@
-
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,11 +45,10 @@
 
         <label for="usertype">Choose your role:</label>
        <select name="usertype">
-       <option value=""></option> 
        <option value="admin">admin</option>
        <option value="customer">customer</option>
         <option value="manager">manager</option>
-       <option value="tourguide">tourguide</option>
+       <option value="guide">guide</option>
        </select>
          
         <label>Email</label>

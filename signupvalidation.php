@@ -108,7 +108,7 @@ if(empty( $fnameerror)&&empty( $lnameerror)&&empty( $unameerror)&&empty( $mailer
       $confirmpassword=$_POST["confirmpassword"];
       
       $sql="insert into login (username,userpassword,firstname,lastname,email,usertype,confirmpassword) 
-      values(' $username','$userpassword',' $firstname',' $lastname','$email',' $usertype','$confirmpassword') ";
+      values('$username','$userpassword','$firstname','$lastname','$email','$usertype','$confirmpassword') ";
       $result=mysqli_query($data,$sql);
    
       if($result)
